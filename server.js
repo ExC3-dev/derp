@@ -174,6 +174,50 @@ app.post("/coinflip", (req, res) => {
   res.json({ win })
 })
 
+app.get("/", (req, res) => {
+  res.send(`
+<!doctype html>
+<meta charset="utf-8">
+<title>derp.digital</title>
+<style>
+  body {
+    background: #0d0d0d;
+    color: #e6e6e6;
+    font-family: monospace;
+    padding: 40px;
+  }
+  input, button {
+    background: #111;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 6px;
+    margin: 4px 0;
+  }
+</style>
+
+<h1>derp.digital</h1>
+<p>paste html. gamble coins. ruin css.</p>
+
+<h3>register</h3>
+<form action="/register" method="post">
+  <input name="username" placeholder="username" required><br>
+  <input name="password" type="password" placeholder="password" required><br>
+  <button>register</button>
+</form>
+
+<h3>login</h3>
+<form action="/login" method="post">
+  <input name="username" placeholder="username" required><br>
+  <input name="password" type="password" placeholder="password" required><br>
+  <label><input type="checkbox" name="remember"> remember device</label><br>
+  <button>login</button>
+</form>
+
+<p>after login, POST your site HTML to <code>/save</code></p>
+`)
+})
+
+
 app.listen(PORT, () =>
   console.log("derp.digital lives on http://localhost:" + PORT)
 )
