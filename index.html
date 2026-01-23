@@ -4,33 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The OG Server</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #9d3ae3, #462d76);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
 
-        .container {
-            max-width: 900px;
-            padding: 2rem;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poppins:wght@400;600&family=Rubik+Dirt&display=swap" rel="stylesheet">
+
+    <style>
+	html, body {
+	    margin: 0;
+	    padding: 0;
+	    width: 100%;
+	    min-height: 100%;
+	    font-family: 'Inter', sans-serif;
+	    background: linear-gradient(to bottom right, #9d3ae3, #462d76);
+	    color: #f0f0f0;
+	    text-align: center;
+	}
+
+	.container {
+	    max-width: 900px;
+	    padding: 2rem;
+	    margin: 0 auto;
+	}
+
 
         h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 8vw;
-            margin: 0.2em 0;
+	    font-size: clamp(2rem, 8vw, 6rem);
+	    white-space: nowrap;
         }
 
         h2 {
@@ -76,26 +75,36 @@
             h2 { font-size: 4vw; }
             p, h3 { font-size: 3vw; }
         }
-        
-        .whisper {
-            font-family: 'Rubik Dirt', cursive;
-            font-size: 2.2vw;
-            margin-bottom: 1rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            white-space: nowrap;
-        }
-        
-        .whisper span {
-            display: inline-block;
-        }
-        
+
+	.whisper {
+	    font-family: 'Courier New', monospace;
+	    font-size: 1.5vw;
+	    margin: 0;
+	    opacity: 0;
+	    pointer-events: none;
+	    transition: opacity 0.25s ease;
+	    white-space: nowrap;
+	    position: absolute;
+	    left: 50%;
+	    bottom: 60px; /* distance above the door */
+	    transform: translate(-50%, 300%); /* center horizontally and offset vertically */
+	    color: white;
+	}
+
+
+	
+	.whisper span {
+	    display: inline-block;
+	    letter-spacing: 0.5px; /* tighter than before */
+	    text-shadow: 0 0 1px #fff; /* subtle glow */
+	}
+
+
         .door {
             display: block;
             margin: 0 auto;
         }
-        
+
         .door svg {
             transition: transform 0.05s linear;
         }
@@ -103,7 +112,7 @@
         .door.hovering svg {
             animation: rumble 0.15s infinite steps(2);
         }
-        
+
         @keyframes rumble {
             0% { transform: translate(0,0); }
             25% { transform: translate(-2px,1px); }
@@ -118,80 +127,99 @@
         <h1>The OG - Server</h1>
         <h2>A new era of internet</h2>
         <hr>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwwGxYo7a2O_4_4f9v9pXCAL0YmtRxqRAKBmWfLxDkstPaAA/viewform?usp=dialog">Rate It!</a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwwGxYo7a2O_4_4f9v9pXCAL0YmtRxqRAKBmWfLxDkstPaAA/viewform?usp=dialog">Like the Idea?</a>
+
         <p>With the new derp.digital, things will never be like before, with more advanced site editing. For now, we’re working through things.</p>
+
         <p>The final product will be done soon and developed over an estimated time of around <b>1 month</b>. It will include minigames, Coins, Levels, Exp, and accounts. Due to the amount of content, release may be delayed.</p>
+
         <hr>
+
         <h3>Until then! Have fun <span>[ gambling ]</span> on slides!</h3>
-        <br>
-        <br>
-        <br>
-        <br>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+
         <div class="whisper" id="whisper"></div>
-        <a href="work" id="door"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF"><path d="M440-446.67q14.33 0 23.83-9.83 9.5-9.83 9.5-23.5 0-14.33-9.5-23.83-9.5-9.5-23.83-9.5-13.67 0-23.5 9.5T406.67-480q0 13.67 9.83 23.5t23.5 9.83ZM266.67-120v-66.67l266.66-46v-459q0-14.33-8-25.33-8-11-21.33-13l-237.33-37.33v-66l250.66 42.66q36 6 59.34 34 23.33 28 23.33 64V-178l-333.33 58ZM120-120v-66.67h80v-580q0-28.66 19.5-47.66 19.5-19 47.17-19h426.66q28.67 0 47.67 19t19 47.66v580h80V-120H120Zm146.67-66.67h426.66v-580H266.67v-.66 580.66Z"/></svg>
+
+        <a href="work" id="door" class="door">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF">
+                <path d="M440-446.67q14.33 0 23.83-9.83 9.5-9.83 9.5-23.5 0-14.33-9.5-23.83-9.5-9.5-23.83-9.5-13.67 0-23.5 9.5T406.67-480q0 13.67 9.83 23.5t23.5 9.83ZM266.67-120v-66.67l266.66-46v-459q0-14.33-8-25.33-8-11-21.33-13l-237.33-37.33v-66l250.66 42.66q36 6 59.34 34 23.33 28 23.33 64V-178l-333.33 58ZM120-120v-66.67h80v-580q0-28.66 19.5-47.66 19.5-19 47.17-19h426.66q28.67 0 47.67 19t19 47.66v580h80V-120H120Zm146.67-66.67h426.66v-580H266.67v-.66 580.66Z"/>
+            </svg>
+        </a>
     </div>
-    <script>
-        const text = "Psst, wana see what were working on";
-        const whisper = document.getElementById("whisper");
-        const door = document.getElementById("door");
-        
-        let letters = [];
-        let animating = false;
-        
-        function buildText() {
-            whisper.innerHTML = "";
-            letters = [];
-        
-            [...text].forEach((char, i) => {
-                const span = document.createElement("span");
-                span.textContent = char === " " ? "\u00A0" : char;
-        
-                const data = {
-                    el: span,
-                    amp: 8 + Math.random() * 10,
-                    speed: 0.003 + Math.random() * 0.004,
-                    phase: Math.random() * Math.PI * 2,
-                    rot: Math.random() * 20 - 10
-                };
-        
-                span.style.opacity = 0;
-                span.style.transform = `translateY(20px) rotate(${data.rot}deg)`;
-                span.style.transition = "opacity 0.25s ease";
-        
-                whisper.appendChild(span);
-                letters.push(data);
-        
-                setTimeout(() => {
-                    span.style.opacity = 1;
-                }, i * 50);
-            });
-        }
-        
-        function animate(t) {
-            if (!animating) return;
-        
-            letters.forEach(d => {
-                const y = Math.sin(t * d.speed + d.phase) * d.amp;
-                const r = Math.sin(t * d.speed * 1.3) * 8 + d.rot;
-                d.el.style.transform = `translateY(${y}px) rotate(${r}deg)`;
-            });
-        
-            requestAnimationFrame(animate);
-        }
-        
-        door.addEventListener("mouseenter", () => {
-            door.classList.add("hovering");
-            whisper.style.opacity = 1;
-            buildText();
-            animating = true;
-            requestAnimationFrame(animate);
+
+<script>
+    const text = "Psst, wana see what we're working on?";
+    const whisper = document.getElementById("whisper");
+    const door = document.getElementById("door");
+
+    let letters = [];
+    let animating = false;
+
+    const wave = {
+        amp: 30,
+        speed: 0.0008,
+        phase: Math.random() * Math.PI * 5
+    };
+
+    function buildText() {
+        whisper.innerHTML = "";
+        letters = [];
+
+        [...text].forEach((char, i) => {
+            const span = document.createElement("span");
+            span.textContent = char === " " ? "\u00A0" : char;
+
+            // small rotation variation per letter for style
+            const data = {
+                el: span,
+                rot: Math.random() * 6 - 3,
+                offset: i * 0.3 // horizontal offset along the wave
+            };
+
+            span.style.opacity = 0;
+            span.style.transform = `translateY(0px) rotate(${data.rot}deg)`;
+            span.style.transition = "opacity 0.25s ease";
+
+            whisper.appendChild(span);
+            letters.push(data);
         });
-        
-        door.addEventListener("mouseleave", () => {
-            door.classList.remove("hovering");
-            whisper.style.opacity = 0;
-            animating = false;
+
+        // fade letters in
+        letters.forEach((d, i) => {
+            setTimeout(() => { d.el.style.opacity = 1; }, i * 20);
         });
-    </script>
+    }
+
+    function animate(t) {
+        if (!animating) return;
+
+        letters.forEach(d => {
+            const y = Math.sin(t * wave.speed + wave.phase + d.offset) * wave.amp;
+            const r = Math.sin(t * wave.speed * 0.5 + wave.phase + d.offset) * 3 + d.rot;
+            d.el.style.transform = `translateY(${y}px) rotate(${r}deg)`;
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    door.addEventListener("mouseenter", () => {
+        door.classList.add("hovering");
+        whisper.style.opacity = 1;
+        buildText();
+        animating = true;
+        requestAnimationFrame(animate);
+    });
+
+    door.addEventListener("mouseleave", () => {
+        door.classList.remove("hovering");
+        whisper.style.opacity = 0;
+        animating = false;
+    });
+</script>
+
+
+
 </body>
 </html>
